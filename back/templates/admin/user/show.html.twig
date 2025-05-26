@@ -1,0 +1,29 @@
+{% extends 'layouts/base_admin.html.twig' %}
+
+{% block title %}Utilisateur{% endblock %}
+
+{% block body %}
+    <h1>Utilisateur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ user.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_user_list') }}">back to list</a>
+
+    <a href="{{ path('admin_user_edit', {'id': user.id}) }}">edit</a>
+
+{% endblock %}
