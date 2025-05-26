@@ -1,0 +1,60 @@
+<!-- Sidebar -->
+{# templates/layouts/_sidebar.html.twig #}
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ path('app_dashboard') }}">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-cubes"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Admin</div>
+    </a>
+
+    <hr class="sidebar-divider my-0">
+
+    <!-- Dashboard -->
+    <li class="nav-item {% if app.request.attributes.get('_route') starts with 'app_dashboard' %}active{% endif %}">
+        <a class="nav-link" href="{{ path('app_dashboard') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <!-- Products -->
+    <li class="nav-item {% if app.request.attributes.get('_route') starts with 'app_product' %}active{% endif %}">
+        <a class="nav-link" href="{{ path('app_product_index') }}">
+            <i class="fas fa-box"></i>
+            <span>Produits</span>
+        </a>
+    </li>
+
+    <!-- Categories -->
+    <li class="nav-item {% if app.request.attributes.get('_route') starts with 'app_category' %}active{% endif %}">
+        <a class="nav-link" href="{{ path('app_category_index') }}">
+            <i class="fas fa-tags"></i>
+            <span>Catégories</span>
+        </a>
+    </li>
+
+    <!-- Users -->
+    <li class="nav-item {% if app.request.attributes.get('_route') starts with 'app_user' %}active{% endif %}">
+        <a class="nav-link" href="{{ path('admin_user_list') }}">
+            <i class="fas fa-tags"></i>
+            <span>Utilisateurs</span>
+        </a>
+    </li>
+
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Logout / Other -->
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Déconnexion</span>
+        </a>
+    </li>
+
+</ul>
+<!-- End of Sidebar -->
