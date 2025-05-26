@@ -1,0 +1,57 @@
+{% extends 'layouts/base_admin.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+    <h1>Liste Produits</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>InventoryStatus</th>
+                <th>Rating</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.code }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.image }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>
+                    {% if product.category %}
+                        {{ product.category.name }}
+                    {% else %}
+                        Aucune catégorie associée.
+                    {% endif %}
+                </td>
+                <td>{{ product.inventoryStatus.value }}</td>
+                <td>{{ product.rating }}</td>
+                <td>{{ product.createdAt }}</td>
+                <td>{{ product.updatedAt }}</td>
+                <td>
+                    <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
+                    <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_product_new') }}">Créer nouvel élément</a>
+{% endblock %}

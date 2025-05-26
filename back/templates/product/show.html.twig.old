@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Détail du produit</h1>
+
+    <table class="table table-striped">
+        <tr><th>Code</th><td>{{ product.code }}</td></tr>
+        <tr><th>Nom</th><td>{{ product.name }}</td></tr>
+        <tr><th>Description</th><td>{{ product.description }}</td></tr>
+        <tr><th>Catégorie</th><td>{{ product.category }}</td></tr>
+        <tr><th>Prix</th><td>{{ product.price }}</td></tr>
+        <tr><th>Quantité</th><td>{{ product.quantity }}</td></tr>
+        <tr><th>Référence interne</th><td>{{ product.internalReference }}</td></tr>
+        <tr><th>Shell ID</th><td>{{ product.shellId }}</td></tr>
+        <tr><th>Statut</th><td>{{ product.inventoryStatus }}</td></tr>
+        <tr><th>Note</th><td>{{ product.rating }}</td></tr>
+        <tr><th>Créé le</th><td>{{ product.createdAt|date('d/m/Y H:i') }}</td></tr>
+        <tr><th>Mis à jour le</th><td>{{ product.updatedAt|date('d/m/Y H:i') }}</td></tr>
+    </table>
+
+    <a href="{{ path('product_edit', {id: product.id}) }}" class="btn btn-primary">Modifier</a>
+    <a href="{{ path('product_list') }}" class="btn btn-secondary">Retour à la liste</a>
+{% endblock %}

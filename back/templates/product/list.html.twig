@@ -1,0 +1,16 @@
+{% extends 'layouts/base_admin.html.twig' %}
+
+{% block title %}Liste des produits{% endblock %}
+
+{% block body %}
+    <h1>Produits</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <strong>{{ product.name }}</strong> ({{ product.code }}) - {{ product.price }}€
+            </li>
+        {% else %}
+            <li>Aucun produit disponible.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
